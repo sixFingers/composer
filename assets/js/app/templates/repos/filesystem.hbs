@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <span class="badge">{{posts}}</span>
+      <a href="/repos/{{full_name}}/posts" class="pushstate">Posts</a>
+      <a href="/repos/{{full_name}}/posts/new" class="pushstate btn btn-default btn-xs">New</a>
+    </li>
+    <li class="list-group-item">
+      <span class="badge">{{pages}}</span>
+      <a href="/repos/{{full_name}}/pages" class="pushstate">Pages</a>
+      <a href="/repos/{{full_name}}/pages/new" class="pushstate btn btn-default btn-xs">New</a>
+    </li>
+    <li class="list-group-item">
+      <span class="badge">{{layouts}}</span>
+      <a href="/repos/{{full_name}}/layouts" class="pushstate">Layouts</a>
+      <a href="/repos/{{full_name}}/pages/new" class="pushstate btn btn-default btn-xs">New</a>
+    </li>
+  </ul>
+  <div class="panel-body">
+    <div class="filesystem">
+      {{fileTree filesystem}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+@import "bootstrap/variables";
+
+@font-size-base: 13px;
+@font-family-sans-serif: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+
+// Basics of a navbar
+@navbar-default-color:             #777;
+@navbar-default-bg:                rgba(255, 255, 255, .8);
+@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
+
+// Navbar links
+@navbar-default-link-color:                @gray-light;
+@navbar-default-link-hover-color:          @gray-darker;
+@navbar-default-link-hover-bg:             transparent;
+@navbar-default-link-active-color:         @gray-darker;
+@navbar-default-link-active-bg:            transparent;
+@navbar-default-link-disabled-color:       #ccc;
+@navbar-default-link-disabled-bg:          transparent;
+
+// Navbar brand label
+@navbar-default-brand-color:               @gray-darker;
+@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-bg:            transparent;
+
+// Navbar toggle
+@navbar-default-toggle-hover-bg:           #ddd;
+@navbar-default-toggle-icon-bar-bg:        #888;
+@navbar-default-toggle-border-color:       #ddd;
+
+@import "bootstrap/bootstrap";
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  padding-top: 70px;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -60px;
+  padding: 0 0 60px;
+}
+
+footer {
+  height: 60px;
+}
+
+.panel-heading {
+  .row {
+    .panel-title {
+      margin-top: 8px;
+    }
+  }
+}
+
+.subtle {
+  color: @gray-light;
+}
+
+.list-group {
+  li:hover {
+    background: lighten(@gray-lighter, 5%);
+  }
+}
+
+.filesystem {
+  ul {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    ul {
+      margin-left: 15px;
+      margin-top: 5px;
+    }
+
+    li {
+      margin-bottom: 5px;
+      cursor: pointer;
+
+      &.folder {
+        padding-left: 0px;
+
+        &:before {
+          content: "▸";
+          margin-right: 5px;
+        }
+
+        &.open {
+          &:before {
+            content: "▾";
+          }
+        }
+      }
+    }
+  }
+}
