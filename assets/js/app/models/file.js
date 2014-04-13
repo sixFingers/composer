@@ -13,6 +13,13 @@ Github.File = Backbone.Model.extend({
     return Base64.decode(this.get('content'));
   },
 
+  save: function(attributes, options) {
+    if (!this.isNew()) {
+      this.url = decodeURIComponent(this.get('url').split("?")[0]);
+    }
+    return Backbone.Model.prototype.save.apply(this, [attributes, options]);
+  },
+
   getType: function() {
     if (this.get('path').search(/^\/_posts\/\w.+?$/) >= 0) {
       return 'post';
