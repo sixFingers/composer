@@ -38,7 +38,7 @@ App.Views.Filesystem = App.Views.Base.extend({
     var sha = this.repo.get('trees').findWhere({
       path: path
     }).get('sha');
-
+    
     App.trigger('open:file', this.repo, path, sha);
   },
 

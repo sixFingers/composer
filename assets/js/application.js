@@ -1,5 +1,7 @@
 //= require vendor/jquery
 //= require vendor/jquery.parseparams
+//= require vendor/codemirror/codemirror
+//= require_tree vendor/codemirror/modes
 //= require vendor/underscore
 //= require vendor/backbone
 //= require vendor/handlebars.runtime

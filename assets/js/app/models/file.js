@@ -21,5 +21,19 @@ Github.File = Backbone.Model.extend({
     } else {
       return 'code';
     }
+  },
+
+  getExtension: function() {
+    return /(?:\.([^.]+))?$/.exec(this.get('name'))[1];
+  },
+
+  getMode: function(modes, ext) {
+    var name;
+    _.find(modes, function(v, k) {
+      if (_.contains(v, ext)) {
+        name = k;
+      }
+    });
+    return {name: name};
   }
 });

@@ -9,5 +9,14 @@ App.Views.FilesShow = App.Views.Base.extend({
     data.content = file.getContent();
 
     this.$el.html(template(data));
+    this.generateCodeTextArea(this.file, this.$el.find('textarea.codemirror')[0]);
+  },
+
+  generateCodeTextArea: function(file, textarea) {
+    return CodeMirror.fromTextArea(textarea, {
+      theme: 'ambiance', 
+      lineNumbers: true, 
+      mode: file.getMode(App.config.modes, file.getExtension())
+    });
   }
 });
