@@ -34,7 +34,7 @@ App.Views.Filesystem = App.Views.Base.extend({
 
   open: function(e) {
     $item = $(e.target);
-    var path = $item.text();
+    var path = $item.data('path');
     var sha = this.repo.get('trees').findWhere({
       path: path
     }).get('sha');
