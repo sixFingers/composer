@@ -6,6 +6,14 @@ App.Views.FilesNew = App.Views.Base.extend({
   },
 
   render: function(repo, type) {
+    /**
+    
+      TODO:
+      - Find elegant way to avoid filename duplication (using microtime seems a nice idea to me)
+    
+    **/
+    
+
     this.repo = repo;
     var template = Handlebars.templates[this.template];
     var data = {}
@@ -18,6 +26,14 @@ App.Views.FilesNew = App.Views.Base.extend({
     this.$el.html(template(data));
     this.cm = this.generateCodeTextArea(this.file, this.$el.find('textarea.codemirror')[0], 'md');
   },
+
+  /**
+  
+    TODO:
+    - Find better way to generate codemirror viewport (as Backbone view helper maybe?)
+    
+  **/
+  
 
   generateCodeTextArea: function(file, textarea, mode) {
     return CodeMirror.fromTextArea(textarea, {
@@ -36,6 +52,13 @@ App.Views.FilesNew = App.Views.Base.extend({
       message: params.message
     };
 
+    /**
+    
+      TODO:
+      - Handle possible exceptions
+    
+    **/
+    
     this.repo.get('files').create(data, {
       success: function() {
         console.log('File creation succeeded!');
