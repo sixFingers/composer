@@ -2,7 +2,7 @@ App.Views.FilesShow = App.Views.Base.extend({
   el: '#viewport',
   template: 'files/show',
   events: {
-    'submit form': 'submitForm'
+    'submit form#fileContent': 'submitForm'
   },
 
   render: function(file) {
@@ -28,7 +28,11 @@ App.Views.FilesShow = App.Views.Base.extend({
     var data = $(e.currentTarget).serializeArray();
     var content = Base64.encode(this.cm.getValue());
     var message = _.findWhere(data, {name:"message"}).value;
-    this.file.save({content: content, message: message}, {});
+    this.file.save({content: content, message: message}, {
+      success: function() {
+        $('.alert-success').slideDown().delay(3000).fadeOut("slow");
+      }
+    });
   }
 
 });

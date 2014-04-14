@@ -4,7 +4,7 @@ App.Views.Filesystem = App.Views.Base.extend({
 
   events: {
     'click li.folder': 'browse',
-    'click li.file': 'open'
+    'click li.file': 'open',
   },
 
   render: function(repo) {

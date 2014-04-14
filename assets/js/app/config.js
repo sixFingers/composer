@@ -3,6 +3,7 @@ App.config = {
   modes: {
     htmlmixed: ['html', 'xthml'],
     css: ['css'],
-    yaml: ['yml']
+    yaml: ['yml'],
+    markdown: ['md']
   },
 };
