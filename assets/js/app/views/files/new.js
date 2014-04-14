@@ -48,7 +48,7 @@ App.Views.FilesNew = App.Views.Base.extend({
     var params = $.parseParams($(e.currentTarget).serialize());
     var data = {
       path: params.path,
-      content: Base64.encode(this.cm.getValue()),
+      content: this.cm.getValue(),
       message: params.message
     };
 
