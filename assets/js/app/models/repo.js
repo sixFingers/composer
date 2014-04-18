@@ -31,7 +31,7 @@ Github.Repo = Backbone.Model.extend({
   },
 
   fetch: function() {
-    this.url = decodeURIComponent(this.url());
+    this.url = decodeURIComponent(this.get('url'));
     return Backbone.Model.prototype.fetch.apply(this, arguments);
   },
 

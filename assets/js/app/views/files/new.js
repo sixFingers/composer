@@ -43,7 +43,15 @@ App.Views.FilesNew = App.Views.Base.extend({
     **/
     
     this.repo.get('files').create(data, {
+      var _this = this;
       success: function() {
+        _this.repo.get('trees').fetch({
+          remove: false
+          /**
+            TODO:
+            - Bind render to fetch event
+          **/
+        });
         console.log('File creation succeeded!');
       }
     });
