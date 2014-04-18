@@ -6,25 +6,17 @@ App.Views.FilesNew = App.Views.Base.extend({
   },
 
   render: function(repo, type) {
-    /**
-    
-      TODO:
-      - Find elegant way to avoid filename duplication (using microtime seems a nice idea to me)
-    
-    **/
-    
-
     this.repo = repo;
     var template = Handlebars.templates[this.template];
     var data = {}
     if(type === 'posts') {
       data.content = '---\nlayout: default\n---';
-      data.path = '_posts/'+(new Date().toISOString().slice(0, 10))+'-new-post-title.md';
+      data.path = '_posts/'+(new Date().toISOString().slice(0, 10))+'-new-post-'+(new Date().getTime())+'.md';
       data.message = 'New post';
     }
 
     this.$el.html(template(data));
-    this.cm = this.generateCodeTextArea(this.file, this.$el.find('textarea.codemirror')[0], 'md');
+    this.cm = this.generateCodeTextArea('md', this.$el.find('textarea.codemirror')[0]);
   },
 
   /**
@@ -33,15 +25,6 @@ App.Views.FilesNew = App.Views.Base.extend({
     - Find better way to generate codemirror viewport (as Backbone view helper maybe?)
     
   **/
-  
-
-  generateCodeTextArea: function(file, textarea, mode) {
-    return CodeMirror.fromTextArea(textarea, {
-      theme: 'ambiance', 
-      lineNumbers: true, 
-      mode: mode || file.getMode(App.config.modes, file.getExtension())
-    });
-  },
 
   submitNewFile: function(e) {
     e.preventDefault();
