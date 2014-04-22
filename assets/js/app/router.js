@@ -14,6 +14,7 @@ App.Router = Backbone.Router.extend({
   },
 
   initialize: function() {
+    $.ajaxSetup({ cache: false });
     App.user = new Github.Me();
     App.repos = new Github.Repos();
 

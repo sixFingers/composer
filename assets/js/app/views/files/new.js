@@ -19,13 +19,6 @@ App.Views.FilesNew = App.Views.Base.extend({
     this.cm = this.generateCodeTextArea('md', this.$el.find('textarea.codemirror')[0]);
   },
 
-  /**
-  
-    TODO:
-    - Find better way to generate codemirror viewport (as Backbone view helper maybe?)
-    
-  **/
-
   submitNewFile: function(e) {
     e.preventDefault();
     var params = $.parseParams($(e.currentTarget).serialize());
@@ -41,18 +34,16 @@ App.Views.FilesNew = App.Views.Base.extend({
       - Handle possible exceptions
     
     **/
-    
+    var _this = this;
     this.repo.get('files').create(data, {
-      var _this = this;
       success: function() {
+        // Redirect to repo root
         _this.repo.get('trees').fetch({
-          remove: false
-          /**
-            TODO:
-            - Bind render to fetch event
-          **/
+          remove:true,
+          success: function() {
+            App.router.navigate('repos/'+_this.repo.get('full_name'), {trigger:true});
+          }
         });
-        console.log('File creation succeeded!');
       }
     });
   }
