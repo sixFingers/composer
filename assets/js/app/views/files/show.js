@@ -2,7 +2,8 @@ App.Views.FilesShow = App.Views.Base.extend({
   el: '#viewport',
   template: 'files/show',
   events: {
-    'submit form#fileContent': 'submitForm'
+    'submit form#fileContent': 'submitForm',
+    'keyup textarea': 'renderPreview'
   },
 
   render: function(file) {
@@ -13,6 +14,7 @@ App.Views.FilesShow = App.Views.Base.extend({
 
     this.$el.html(template(data));
     this.cm = this.generateCodeTextArea(this.file.getExtension(), this.$el.find('textarea.codemirror')[0]);
+    this.renderPreview();
   },
 
   submitForm: function(e) {

@@ -10,6 +10,7 @@
 //= require vendor/base64
 //= require vendor/yaml
 //= require vendor/json2yaml
+//= require vendor/markdown.min
 //= require_tree app/helpers
 //= require app/namespace
 //= require app/config

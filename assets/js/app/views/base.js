@@ -22,5 +22,10 @@ App.Views.Base = Backbone.View.extend({
       lineNumbers: true, 
       mode: mode
     });
+  },
+
+  renderPreview: function() {
+    var preview = markdown.toHTML(this.cm.getValue().split('---').slice(2).join(''));
+    this.$el.find('#previewWrapper').html(preview);
   }
 });

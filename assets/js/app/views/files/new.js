@@ -2,7 +2,8 @@ App.Views.FilesNew = App.Views.Base.extend({
   el: '#viewport',
   template: 'files/new',
   events: {
-    'submit form#newFile': 'submitNewFile'
+    'submit form#newFile': 'submitNewFile',
+    'keyup textarea': 'renderPreview'
   },
 
   render: function(repo, type) {
@@ -17,6 +18,7 @@ App.Views.FilesNew = App.Views.Base.extend({
 
     this.$el.html(template(data));
     this.cm = this.generateCodeTextArea('md', this.$el.find('textarea.codemirror')[0]);
+    this.renderPreview();
   },
 
   submitNewFile: function(e) {
