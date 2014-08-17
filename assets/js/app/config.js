@@ -1,3 +1,3 @@
 App.config = {
-  branchName: 'gh-pages'
+  branchName: 'gh-pages',
 };

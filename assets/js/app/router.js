@@ -4,14 +4,17 @@ App.Router = Backbone.Router.extend({
     'repos': 'listRepos',
     'repos/new': 'newRepo',
     'repos/:owner/:repo': 'showRepo',
+    'repos/:owner/:repo/:type/new': 'newFile',
     'error': 'error'
   },
 
   signals: {
-    'open:file': 'openFile'
+    'open:file': 'openFile',
+    'new:file': 'newFile'
   },
 
   initialize: function() {
+    $.ajaxSetup({ cache: false });
     App.user = new Github.Me();
     App.repos = new Github.Repos();
 
@@ -24,6 +27,7 @@ App.Router = Backbone.Router.extend({
     App.reposRemove = new App.Views.ReposRemove();
     App.reposFilesystem = new App.Views.Filesystem();
     App.filesShow = new App.Views.FilesShow();
+    App.filesNew = new App.Views.FilesNew();
     App.error = new App.Views.Error();
 
     this.$el = $('body');
@@ -149,6 +153,11 @@ App.Router = Backbone.Router.extend({
         App.filesShow.render(file);
       }
     });
+  },
+
+  newFile: function(owner, repo, type) {
+    var repo = App.repos.findWhere({name: repo});
+    App.filesNew.render(repo, type);
   },
 
   error: function() {

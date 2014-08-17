@@ -31,7 +31,7 @@ Github.Repo = Backbone.Model.extend({
   },
 
   fetch: function() {
-    this.url = decodeURIComponent(this.url());
+    this.url = decodeURIComponent(this.get('url'));
     return Backbone.Model.prototype.fetch.apply(this, arguments);
   },
 
@@ -66,7 +66,7 @@ Github.Repo = Backbone.Model.extend({
 
   getPosts: function() {
     var posts = this.get('trees').filter(function(blob) {
-      return blob.get('path').search(/^\/_posts\/\w.+?$/) >= 0
+      return blob.get('path').search(/^\_posts\/\w.+?$/) >= 0
     });
 
     return posts;
@@ -75,7 +75,6 @@ Github.Repo = Backbone.Model.extend({
   getPages: function() {
     var pages = this.get('trees').filter(function(blob) {
       var path = blob.get('path');
-
       return path.match(/.html/) && !path.match(/_layouts/) && !path.match(/_posts/);
     });
 

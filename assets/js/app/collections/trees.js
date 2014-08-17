@@ -44,6 +44,6 @@ Github.Trees = Backbone.Collection.extend({
   },
 
   parse: function(tree) {
-    this.reset(tree.tree);
+    return this.reset(tree.tree);
   }
 });

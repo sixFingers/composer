@@ -28,6 +28,8 @@
 @navbar-default-toggle-border-color:       #ddd;
 
 @import "bootstrap/bootstrap";
+@import "codemirror";
+@import "ambiance";
 
 html {
   height: 100%;
@@ -48,7 +50,28 @@ body {
 footer {
   height: 60px;
 }
-
+.center{
+  float:none;
+  margin:0 auto;
+}
+.text-center{
+  text-align:center;
+}
+.btn-key{
+  color:grey;
+  background-color:white;
+  border-color:whitesmoke;
+  box-shadow: 0 5px lightgrey, 0 6px grey, 1px 6px 2px grey, -1px 6px 2px grey, 0px 7px 7px grey, 0 20px 10px whitesmoke;
+}
+.btn-key:active{
+  position:relative;
+  top:6px;
+  box-shadow: 0 0px grey, 1px 0px 2px grey, -1px 0px 2px grey, 0px 1px 7px grey, 0 10px 10px whitesmoke;
+}
+.relief-text{
+  color:seagreen;
+}
+.relief-text:hover { color:lightseagreen; }
 .panel-heading {
   .row {
     .panel-title {

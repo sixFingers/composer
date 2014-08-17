@@ -1,4 +1,7 @@
 extends ../layout
 
 block content
-  a(href="#{authorizeUri}?client_id=#{clientId}&redirect_uri=#{redirectUri}&scope=#{scope}") Access
+ .container
+  .col-sm-4.center.text-center
+    h1 ✍ Composer
+    a(class="btn relief-text btn-key btn-lg", href="#{authorizeUri}?client_id=#{clientId}&redirect_uri=#{redirectUri}&scope=#{scope}") Login With Github

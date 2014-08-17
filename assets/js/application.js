@@ -1,5 +1,7 @@
 //= require vendor/jquery
 //= require vendor/jquery.parseparams
+//= require vendor/codemirror/codemirror
+//= require_tree vendor/codemirror/modes
 //= require vendor/underscore
 //= require vendor/backbone
 //= require vendor/handlebars.runtime
@@ -8,6 +10,7 @@
 //= require vendor/base64
 //= require vendor/yaml
 //= require vendor/json2yaml
+//= require vendor/markdown.min
 //= require_tree app/helpers
 //= require app/namespace
 //= require app/config

@@ -4,7 +4,7 @@ App.Views.Filesystem = App.Views.Base.extend({
 
   events: {
     'click li.folder': 'browse',
-    'click li.file': 'open'
+    'click li.file': 'open',
   },
 
   render: function(repo) {
@@ -34,11 +34,11 @@ App.Views.Filesystem = App.Views.Base.extend({
 
   open: function(e) {
     $item = $(e.target);
-    var path = $item.text();
+    var path = $item.data('path');
     var sha = this.repo.get('trees').findWhere({
       path: path
     }).get('sha');
-
+    
     App.trigger('open:file', this.repo, path, sha);
   },
 
